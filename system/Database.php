@@ -1,4 +1,5 @@
 <?php
+require_once '../settings/Config.php';
 class Database {
 
     private $server = DB_HOST;
@@ -10,9 +11,9 @@ class Database {
     public function __construct() {
         try {
             $this->conn = new PDO($this->server, $this->user, $this->pass, $this->options);
+            echo "Connected";
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
     }
-
 }
